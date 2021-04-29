@@ -6,9 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="desktop-app" />
+        <module name="desktop-application" />
         <module name="reader-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="desktop-app" target="11" />
+      <module name="desktop-applications" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>
