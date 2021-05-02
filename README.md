@@ -5,7 +5,16 @@ Currently using kabeja library for DXF File reading.
 
 ## Modules
 - reader-api: Contains commons packages
-- desktop-app: Contains all required packaging for desktop app deployment
+- desktop-application: Contains all required packaging for desktop app deployment
 
 To be created: 
 - web-app modules
+
+# Desktop Application
+As a warning, before compiling you **may** need to define an SDK for IDE runtime components.
+
+- Compile using mvn compile package
+- Located file inside target/shade
+- Can be ran using java -jar <path>
+
+Upon release, application gets bundled to native .app for macos alongside dock icon.
