@@ -1,13 +1,18 @@
 package com.harrydrummond.dxfdetailer.desktopapp;
 
-import com.harrydrummond.dxfdetailer.SystemInfo;
-import com.harrydrummond.dxfdetailer.desktopapp.containers.MainStageContainer;
-import com.harrydrummond.dxfdetailer.desktopapp.controllers.Controller;
+import com.harrydrummond.dxfdetailer.desktopapp.controllers.FileController;
+import com.harrydrummond.dxfdetailer.desktopapp.controllers.StageController;
+import com.harrydrummond.dxfdetailer.desktopapp.model.FileModel;
+import com.harrydrummond.dxfdetailer.desktopapp.views.View;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,17 +22,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-//        var javaVersion = SystemInfo.javaVersion();
-//        var javafxVersion = SystemInfo.javafxVersion();
-//
-//        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-//        var scene = new Scene(new StackPane(label), 640, 480);
-//        stage.setScene(scene);
-//        stage.show();
 
-        Controller controller = new Controller(stage);
-        Scene scene = new Scene(new MainStageContainer(),640,480, ColourConstants.DARK_PURPLE);
+        StageController controller = new StageController(stage);
+
+        View view = new View();
+        FileModel fileModel = new FileModel();
+        new FileController(controller,view, fileModel);
+
+        Scene scene = new Scene(view,640,480);
+        view.applyFontResizingToPane(scene, view.getUploadContainer());
+        view.applyFontResizingToPane(scene, view.getInfoPane());
         stage.setScene(scene);
+        stage.setMinWidth(680);
+        stage.setMinHeight(540);
         stage.show();
     }
 

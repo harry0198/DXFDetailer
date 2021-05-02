@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="desktop-application">
+    <output-path>$PROJECT_DIR$/out/artifacts/desktop_application</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.harrydrummond.dxfdetailer.desktopapp.App" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="desktop_application.jar">
+        <element id="module-output" name="desktop-application" />
+      </element>
+    </root>
+  </artifact>
+</component>

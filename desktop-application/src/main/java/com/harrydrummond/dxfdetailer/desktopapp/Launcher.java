@@ -1,0 +1,8 @@
+package com.harrydrummond.dxfdetailer.desktopapp;
+
+public class Launcher {
+
+    public static void main(String[] args) {
+        App.main(args);
+    }
+}

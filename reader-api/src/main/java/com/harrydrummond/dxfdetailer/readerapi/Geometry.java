@@ -1,4 +1,4 @@
-package com.harrydrummond.dxfdetailer.commons;
+package com.harrydrummond.dxfdetailer.readerapi;
 
 import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFLayer;

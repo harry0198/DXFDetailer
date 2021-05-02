@@ -10,9 +10,5 @@
         <module name="reader-api" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="desktop-app" target="11" />
-      <module name="desktop-applications" target="15" />
-    </bytecodeTargetLevel>
   </component>
 </project>
