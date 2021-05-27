@@ -1,0 +1,35 @@
+<!-- I am not a frontend developer by any means so excuse this! -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link th:href="@{/css/stylesheet.css}" href="../static/css/stylesheet.css" rel="stylesheet" type="text/css" media="screen"/>
+</head>
+<body>
+<h1 class="alert alert-primary">the results are in...</h1>
+
+<div class="container">
+    <div class="child" id="pastel-blue">
+        <h1 class="inner-container" th:text="${fileResult.getFileName()}">File Name</h1>
+        <span>File Name</span>
+    </div>
+    <div class="child" id="pastel-green">
+        <h1 class="inner-container" th:text="${fileResult.getPathLength()} +'cm'">Path Length</h1>
+        <span >Path Length</span>
+    </div>
+    <div class="child" id="pastel-purple">
+        <h1 class="inner-container" th:text="${fileResult.getMaxWidth()} +'cm'">Max Width</h1>
+        <span>Max Width</span>
+    </div>
+    <div class="child" id="pastel-red">
+        <h1 class="inner-container" th:text="${fileResult.getMaxHeight()} +'cm'">Max Height</h1>
+        <span>Max Height</span>
+    </div>
+
+
+</div>
+
+</body>
+</html>

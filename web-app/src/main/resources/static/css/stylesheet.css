@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.child {
+    padding: 20px;
+    text-align: center;
+}
+span {
+    padding: 10px;
+}
+
+#pastel-red {
+    background-color: rgb(252,169,133);
+}
+
+#pastel-green {
+    background-color: rgb(224,243,176);
+}
+
+#pastel-blue {
+    background-color: rgb(204,236,239);
+}
+
+#pastel-purple {
+    background-color: rgb(221,212,232);
+}

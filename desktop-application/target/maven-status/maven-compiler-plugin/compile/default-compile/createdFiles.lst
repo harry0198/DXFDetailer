@@ -1,0 +1,10 @@
+com/harrydrummond/dxfdetailer/desktopapp/views/View.class
+com/harrydrummond/dxfdetailer/SystemInfo$OS.class
+com/harrydrummond/dxfdetailer/desktopapp/Launcher.class
+com/harrydrummond/dxfdetailer/desktopapp/controllers/StageController.class
+com/harrydrummond/dxfdetailer/SystemInfo.class
+com/harrydrummond/dxfdetailer/desktopapp/controllers/FileController.class
+com/harrydrummond/dxfdetailer/desktopapp/ColourConstants.class
+com/harrydrummond/dxfdetailer/desktopapp/Dialog.class
+com/harrydrummond/dxfdetailer/desktopapp/App.class
+com/harrydrummond/dxfdetailer/desktopapp/model/FileModel.class

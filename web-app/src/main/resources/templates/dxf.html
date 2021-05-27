@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <title>Title</title>
+</head>
+<body>
+
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2>Upload File Example</h2>
+        <form method="post" th:action="@{/dxf/upload}" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="file" name="file" class="form-control-file">
+          </div>
+          <button type="submit" class="btn btn-primary">Upload File</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
