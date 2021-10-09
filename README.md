@@ -11,7 +11,7 @@ To be completed:
 - web-app modules
 
 # Desktop Application
-As a warning, before compiling you **may** need to define an SDK for IDE runtime components. (JavaFX as no longer included in SDK)
+As a warning, before compiling you **may** need to define an SDK for IDE runtime components. (JavaFX as no longer included in JDK)
 
 - Compile using mvn compile package
 - Located file inside target/shade
