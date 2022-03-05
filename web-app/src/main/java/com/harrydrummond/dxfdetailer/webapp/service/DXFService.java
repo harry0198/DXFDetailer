@@ -39,56 +39,56 @@ public class DXFService {
                 .getId();
     }
 
-    /**
-     * Parses selected file and parses it. Will return a DXFResponse Entity if
-     * success.
-     * @param fileId FileID from database
-     * @return ResponseEntity<DXFResponse> if success.
-     * HttpStatus - SERVICE UNAVAILABLE if temp file could not be created on server or missing.
-     * HttpStatus - UNPROCESSABLE ENTITY if file cannot be parsed.
-     */
-    public DXFResponse getFileVariables(final Long fileId) {
-
-        DXFFile dxfFile = dxfRepository
-                .findById(fileId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-
-        File tempFile = null;
-
-        try {
-            tempFile = File.createTempFile("dxfbyte", null, null);
-
-            FileOutputStream fos = new FileOutputStream(tempFile);
-            fos.write(dxfFile.getContent());
-
-            tempFile.deleteOnExit();
-            fos.close();
-        } catch (IOException ioException) {
-            System.err.println("Unable to write temp file with file id: [" + fileId + "].");
-            ioException.printStackTrace();
-        }
-
-        // If file could not be created or was deleted before request completion.
-        if (tempFile == null || !tempFile.exists()) {
-           // return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
-            return null;
-        }
-
-        DXFDocument document = Geometry.parseFile(tempFile);
-        // if file could not be parsed
-        if (document == null) {
-            //return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
-            return null;
-        }
-
-        return
-                new DXFResponse(
-                        dxfFile.getName(),
-                        Geometry.getPathLength(document),
-                        Geometry.getDocumentMaxWidth(document),
-                        Geometry.getDocumentMaxHeight(document)
-        );
-    }
+//    /**
+//     * Parses selected file and parses it. Will return a DXFResponse Entity if
+//     * success.
+//     * @param fileId FileID from database
+//     * @return ResponseEntity<DXFResponse> if success.
+//     * HttpStatus - SERVICE UNAVAILABLE if temp file could not be created on server or missing.
+//     * HttpStatus - UNPROCESSABLE ENTITY if file cannot be parsed.
+//     */
+//    public DXFResponse getFileVariables(final Long fileId) {
+//
+//        DXFFile dxfFile = dxfRepository
+//                .findById(fileId)
+//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+//
+//        File tempFile = null;
+//
+//        try {
+//            tempFile = File.createTempFile("dxfbyte", null, null);
+//
+//            FileOutputStream fos = new FileOutputStream(tempFile);
+//            fos.write(dxfFile.getContent());
+//
+//            tempFile.deleteOnExit();
+//            fos.close();
+//        } catch (IOException ioException) {
+//            System.err.println("Unable to write temp file with file id: [" + fileId + "].");
+//            ioException.printStackTrace();
+//        }
+//
+//        // If file could not be created or was deleted before request completion.
+//        if (tempFile == null || !tempFile.exists()) {
+//           // return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+//            return null;
+//        }
+//
+//        DXFDocument document = Geometry.parseFile(tempFile);
+//        // if file could not be parsed
+//        if (document == null) {
+//            //return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+//            return null;
+//        }
+//
+//        return
+//                new DXFResponse(
+//                        dxfFile.getName(),
+//                        Geometry.getPathLength(document),
+//                        Geometry.getDocumentMaxWidth(document),
+//                        Geometry.getDocumentMaxHeight(document)
+//        );
+//    }
 
 
 }
