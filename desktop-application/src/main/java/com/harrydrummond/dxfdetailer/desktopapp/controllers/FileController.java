@@ -5,6 +5,7 @@ import com.harrydrummond.dxfdetailer.desktopapp.ColourConstants;
 import com.harrydrummond.dxfdetailer.desktopapp.Dialog;
 import com.harrydrummond.dxfdetailer.desktopapp.views.View;
 import com.harrydrummond.dxfdetailer.readerapi.Geometry;
+import com.harrydrummond.dxfdetailer.readerapi.documents.DXFPathDocument;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -43,14 +44,17 @@ public class FileController {
     }
 
     private void runActionsOnFile(final File file) {
-        DXFDocument document = Geometry.parseFile(file);
-
-        if (document == null) {
+        DXFPathDocument document;
+        try {
+            document = new DXFPathDocument(file);
+        } catch (IllegalArgumentException illegalArgumentException) {
             view.addInformation(Dialog.INVALID_FILE, 0L, 0L, 0L);
             return;
         }
 
-        view.addInformation(file.getName(), Geometry.getPathLength(document), Geometry.getDocumentMaxHeight(document), Geometry.getDocumentMaxWidth(document));
+
+        view.addInformation(file.getName(), document.getPathLength(),
+                document.getDocumentMaxHeight(), document.getDocumentMaxWidth());
 
     }
 }
